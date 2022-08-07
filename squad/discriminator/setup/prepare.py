@@ -54,6 +54,7 @@ def main(args):
     real_data = []
     prev_context = ""
 
+    count = 0
     for ex in train_data:
         if len(ex["answers"]["text"])==0:
             continue
