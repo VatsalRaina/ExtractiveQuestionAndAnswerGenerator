@@ -22,6 +22,7 @@ parser = argparse.ArgumentParser(description='Get all command line arguments.')
 parser.add_argument('--model_path', type=str, help='Load path of trained model')
 parser.add_argument('--num_beams', type=int, default=1, help='Number of beams')
 parser.add_argument('--num_return_sequences', type=int, default=1, help='Number of return sequences')
+parser.add_argument('--split', type=str, help='train or validation')
 parser.add_argument('--save_path', type=str, help='Path to save generated text')
 
 def format_time(elapsed):
@@ -52,7 +53,8 @@ def main(args):
     # Choose device
     device = get_default_device()
 
-    test_data = load_dataset('squad', split='validation')
+    #test_data = load_dataset('squad', split='validation')
+    test_data = load_dataset('squad', split=args.split)
 
     tokenizer = T5Tokenizer.from_pretrained("t5-base")
 
