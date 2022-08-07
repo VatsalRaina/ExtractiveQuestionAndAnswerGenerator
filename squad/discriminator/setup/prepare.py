@@ -16,6 +16,7 @@ from datasets import load_dataset
 parser = argparse.ArgumentParser(description='Get all command line arguments.')
 parser.add_argument('--gen_questions_path', type=str,  help='Specify path to generated questions on training set')
 parser.add_argument('--gen_contexts_path', type=str,  help='Specify path to contexts corresponding to the generated questions')
+parser.add_argument('--split', type=str,  help='train or validation')
 parser.add_argument('--save_dir', type=str,  help='Specify path to save generated jsons')
 
 # Everything will be tokenized and de-tokenized to make consistent
@@ -49,7 +50,7 @@ def main(args):
 
     # Let's prepare the real data first
 
-    train_data = load_dataset('squad', split='train')
+    train_data = load_dataset('squad', split=args.split)
 
     real_data = []
     prev_context = ""
