@@ -33,6 +33,7 @@ parser.add_argument('--lr_decay', type=float, default=0.85, help='Specify the le
 parser.add_argument('--dropout', type=float, default=0.1, help='Specify the dropout rate')
 parser.add_argument('--n_epochs', type=int, default=5, help='Specify the number of epochs to train for')
 parser.add_argument('--seed', type=int, default=1, help='Specify the global random seed')
+parser.add_argument('--train_real_data_path', type=str, help='Load path of real training data')
 parser.add_argument('--train_fake_data_path', type=str, help='Load path of fake training data')
 parser.add_argument('--save_path', type=str, help='Load path to which trained model will be saved')
 
