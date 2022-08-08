@@ -21,7 +21,7 @@ MAXLEN = 512
 parser = argparse.ArgumentParser(description='Get all command line arguments.')
 parser.add_argument('--batch_size', type=int, default=24, help='Specify the training batch size')
 parser.add_argument('--test_real_data_path', type=str, help='Load path of real training data')
-parser.add_argument('--test_fake_data_path', type=str, help='Load path of real training data')
+parser.add_argument('--test_fake_data_path', type=str, help='Load path of real fake data')
 parser.add_argument('--model_path', type=str, help='Load path of trained model')
 parser.add_argument('--predictions_save_path', type=str, help='Load path to which predictions will be saved')
 
