@@ -92,7 +92,10 @@ def main(args):
     for item in train_data:
         question = item["question"]
         answer = item["answer"]
-        combo = question + " [SEP] " + answer
+        if answer is None:
+            combo = question
+        else:
+            combo = question + " [SEP] " + answer
         input_encodings_dict = tokenizer(combo, truncation=True, max_length=MAXLEN, padding="max_length")
         inp_ids = input_encodings_dict['input_ids']
         inp_att_msk = input_encodings_dict['attention_mask']

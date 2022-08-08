@@ -93,7 +93,10 @@ def main(args):
         question = item["question"]
         answer = item["answer"]
         context = item["context"]
-        combo = question + " [SEP] " + answer + " [SEP] " + context
+        if answer is None:
+            combo = question + " [SEP] " + context
+        else:
+            combo = question + " [SEP] " + answer + " [SEP] " + context
         input_encodings_dict = tokenizer(combo, truncation=True, max_length=MAXLEN, padding="max_length")
         inp_ids = input_encodings_dict['input_ids']
         inp_att_msk = input_encodings_dict['attention_mask']
